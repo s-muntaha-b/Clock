@@ -1,6 +1,9 @@
 PImage clockBg, clockBase;
 float x1, y1;
-float spin = 0;
+float handOne = 0;
+float handTwo = 0;
+float lengthOne = 100;
+float lengthTwo = 50;
   
   void setup(){
   size(1000, 1000, P2D);
@@ -17,9 +20,22 @@ float spin = 0;
 void draw(){
   background(clockBg);
   image(clockBase, x1, y1);
-  translate(x1, y1);
-  rotate(radians(spin));
-  spin++;
-  line(0, 0, x1, 700);
   
+  pushMatrix();
+  translate(x1, y1);
+  rotate(radians(handOne));
+  line(0, 0, lengthOne, 0);
+  ellipse(lengthOne, 0, 10, 10);
+  popMatrix();
+  
+  pushMatrix();
+  translate(x1, y1);
+  rotate(radians(handTwo));
+  line(0, 0,lengthTwo, 0);
+  ellipse(lengthTwo, 0, 10, 10);
+  popMatrix();
+
+  handOne+=0.1;
+  handTwo+=0.5;
+
 }
