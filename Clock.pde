@@ -17,8 +17,9 @@ float spin = 0;
 void draw(){
   background(clockBg);
   image(clockBase, x1, y1);
-  rotate(spin);
-  spin += 0.001;
-  line(x1, y1, x1, 775);
+  translate(x1, y1);
+  rotate(radians(spin));
+  spin++;
+  line(0, 0, x1, 700);
   
 }
